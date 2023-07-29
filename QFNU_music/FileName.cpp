@@ -47,42 +47,63 @@ enum Voice
 };
 
 
-void qfnu()
+void QFNU()
 {
     HMIDIOUT handle;
     midiOutOpen(&handle, 0, 0, 0, CALLBACK_NULL);
     midiOutShortMsg(handle, 0 << 8 | 0xC0);
     int volume = 0x7f;
     int voice = 0x0;
-    int sleep = 400;
-    int qfnu[] =
+    int sleep = 300;
+    int QFNU[] =
     {
-        M1,_,M1,_,M1,_,M2,_,M3,_,M5,_,M5,_,_,
+        M1,_,M1,_,M1,_,M2,_,
+        M3,_,M5,_,M5,_,_,_,
         M6,_,M6,_,M5,_,M3,_,
-        M1,_,M2,M3,M2,_,
+        M1,_,M2,M3,M2,_,_,_,
         M3,_,M3,_,M5,_,M5,_,
         M3,_,M2,_,M1,_,L6,_,
-        L5,L6,_,M1,M2,_,M3,_,M5,
-        M2,_,_,_,
-        M1,_,M1,_,M1,_,M2,_,M3,_,M5,_,M5,_,_,
+        L5,L6,M1,M2,M3,_,M5,_,
+        M2,_,_,_,_,_,
+        M1,_,M1,_,M1,_,M2,_,
+        M3,_,M5,_,M5,_,_,
         M6,_,M6,_,M5,_,M3,_,
-        M1,_,M2,M3,M2,_,
+        M1,_,M2,M3,M2,_,_,
         M3,_,M3,_,M5,_,M5,_,
         M3,_,M2,_,M1,_,L6,_,
-        L5,L6,M1,M2,M3,M2,_,
-        M1,_,_,_,
+        L5,L6,M1,M2,M3,_,M2,_,
+        M1,_,_,_,_,
+        H1,_,H1,_,H1,_,_,_,
+        M3,_,M5,M6,M5,_,_,_,
+        M6,_,M5,_,M4,_,M1,_,
+        M7,_,M6,M7,M5,_,_,_,
+        M6,_,H1,_,H1,_,H1,_,
+        M3,_,M5,M6,M6,_,M6,_,
+        M6,M5,M4,M4,M4,_,_,_,
+        M2,M2,M2,M3,_,M2,_,_,_,
+        H1,_,H1,_,H1,_,_,_,
+        M3,_,M5,M6,M5,_,_,_,
+        M6,_,M5,_,M4,_,M1,_,
+        M7,_,M6,M7,M5,_,_,_,
+        M6,_,H1,_,H1,_,H1,_,
+        M3,M3,M5,M6,M6,_,_,_,
+        M2,M3,M5,M5,M5,M5,M5,M5,_,
+        H2,_,H2,_,M6,_,M7,_,
+        H1,H1,H1,H1,H1,H1,
 
-    }; 
 
-    for (auto i : qfnu) {
+    };
+
+    for (auto i : QFNU) {
+        printf("i=%d    ", i);
         if (i == LOW_SPEED || i == HIGH_SPEED || i == MIDDLE_SPEED) {
-            sleep = i;//Sleep(i/2);
+            sleep = i;
             continue;
         }
-        if (i == 0) { sleep = 175; continue; }
-        if (i == 700) { Sleep(175); continue; }
+        if (i == 0) { sleep = 150; continue; }
+        if (i == 700) { Sleep(150); continue; }
         if (i == _) {
-            Sleep(400);
+            Sleep(300);
             continue;
         }
 
@@ -100,6 +121,6 @@ void qfnu()
 
 int main()
 {
-    qfnu();  // 犁牛之子 
+    QFNU();  // 犁牛之子 
     return 0;
 }
