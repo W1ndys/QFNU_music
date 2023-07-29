@@ -120,6 +120,6 @@ void QFNU()
 
 int main()
 {
-    QFNU();  // 犁牛之子 
+    QFNU();  //犁牛之子
     return 0;
 }
