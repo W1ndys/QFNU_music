@@ -95,7 +95,6 @@ void QFNU()
     };
 
     for (auto i : QFNU) {
-        printf("i=%d    ", i);
         if (i == LOW_SPEED || i == HIGH_SPEED || i == MIDDLE_SPEED) {
             sleep = i;
             continue;
