@@ -11,4 +11,4 @@
 
 如有对于乐理知识简谱较熟悉的同学欢迎联系交流
 s
-QQ-Mail：w2769731875@qq.com
+QQ-Mail：w1ndys@outlook.com
